@@ -86,7 +86,24 @@ public class board extends JPanel implements ActionListener {
     }
 
     private void doDrawing(Graphics g){
-        if (inGame)
+        if (inGame){
+            g.drawImage(apple,apple_x,apple_y,this);
+
+            for (int i = 0; i < dots; i++){
+                if (i == 0){
+                    g.drawImage(head, x[i], y[i],this);
+                    }
+                else{
+                    g.drawImage(ball, x[i],y[i],this);
+                }
+            }
+
+            Toolkit.getDefaultToolkit().sync();
+
+        }
+        else{
+            gameOver(g);
+        }
 
     }
 }
